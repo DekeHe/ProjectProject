@@ -1,15 +1,19 @@
 package com.example.AA;
 
+import com.example.AA.Dog;
 import com.example.AA.generics.Point;
 import com.example.AA.inheritance.Boss;
 import com.example.AA.inheritance.Person;
 import com.example.AA.inheritance2.NewBoss;
 import com.example.AA.inheritance2.NewPerson;
 import com.example.AA.inheritance3.NewNewBoss;
+import com.example.AA.thread.Apple;
+import com.example.AA.thread.Cat;
 
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static com.example.AA.Calculation.add;
 
@@ -156,5 +160,60 @@ public class Main
         System.out.println(Day.values()[0].getClass().getName());
         System.out.println(day.getClass().getName());
         System.out.println (Day.valueOf("Monday"));
+
+        //
+        int t=0;
+        switch(t)
+        {
+            case 0:
+                System.out.println(0);
+                break;
+            case 1:
+                System.out.println(1);
+                break;
+            default:
+                System.out.println(-1);
+                break;
+        }
+
+        //overload
+        Example example=new Example();
+        example.send(1);
+        example.send(1,2);
+
+        //Optional
+        Optional<String> k=Optional.ofNullable(null);
+        System.out.println(k.isPresent()+" "+k.isEmpty()+" "+k.orElse(null));
+
+        //thread
+//        Apple apple=new Apple();
+//        Cat cat=new Cat();
+//        Dog dog=new Dog();
+//        Thread t1=new Thread(dog);t1.setName("dog");t1.start();
+//        IntStream.range(0,10).forEach(v->System.out.println(Thread.currentThread().getName()+v));
+
+        //equal(),toString(),hashCode(),getClass()
+        String str="abc";
+        System.out.println(str.equals("abc")+" "+str.hashCode());
+        System.out.println(str.getClass());
+
+        //
+
+
+
+
+
+        //bean, qualifier, reflection, eager loading, lazy loading, join, pagenation
+        //equals(), toString(), hashCode(), getClass()
+        //variable inheritance
+
+//        List<String> strings=new ArrayList<>(Arrays.asList("a","c","b"));
+//        System.out.println(strings.stream().max(new Comparator<String>(){public int compare(String s1,String s2){return s1.compareTo(s2);}}).orElse(null));
+//        System.out.println(strings.stream().min(new Comparator<String>(){public int compare(String s1,String s2){return s1.compareTo(s2);}}).orElse(null));
+//        strings.stream().forEach(v->System.out.println(v));
+//        strings=strings.stream().map(v->v+1).collect(Collectors.toList());System.out.println(strings);
+//        strings=strings.stream().filter(v->!v.equals("a1")).collect(Collectors.toList());System.out.println(strings);
+//        strings=strings.stream().sorted(new Comparator<String>(){public int compare(String s1,String s2){return s1.compareTo(s2);}}).collect(Collectors.toList());System.out.println(strings);
+
     }
 }
