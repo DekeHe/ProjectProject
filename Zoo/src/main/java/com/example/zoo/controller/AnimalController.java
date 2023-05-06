@@ -5,19 +5,27 @@ import com.example.zoo.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
+import java.net.http.HttpClient;
 import java.util.List;
 
 @RestController
+@RestControllerAdvice
 public class AnimalController
 {
     //member variable
-    @Autowired @Qualifier(value="") private AnimalService animalService;
+    @Autowired @Qualifier(value="a") private AnimalService animalService;
     //member method
     //read
     @GetMapping(value="/read/animal")
-    public Animal readAnimal(@RequestParam(value="id") String id){return animalService.readAnimal(id);}
+    public Animal readAnimal(@RequestParam(value="id") String id)
+    {
+        if(id.length()>1)throw new HttpClientErrorException(HttpStatusCode.valueOf(400),"id too long");
+        return animalService.readAnimal(id);
+    }
     @GetMapping(value="/read/animal1")
     public Animal readAnimal1(@RequestParam(value="id") String id){return animalService.readAnimal(String.valueOf(Integer.valueOf(id)-1));}
     @GetMapping(value="/read/animal2")
@@ -41,4 +49,19 @@ public class AnimalController
     //update
     @PutMapping(value="/update/animal")
     public String updateAnimal(@RequestParam(value="id") String id,@RequestParam(value="state") String state){return animalService.updateAnimal(id,state);}
+
+    @ExceptionHandler(value=HttpClientErrorException.class)
+    public String handleHttpClientException(HttpClientErrorException hcee)
+    {
+        int code=hcee.getStatusCode().value();
+        switch(code)
+        {
+            case 400:
+                return "here1: "+hcee.getMessage();
+        }
+        return "happened error unknown";
+    }
+
+    @ExceptionHandler(value=Exception.class)
+    public String handleException(Exception e){return "here2: "+e.getMessage();}
 }
