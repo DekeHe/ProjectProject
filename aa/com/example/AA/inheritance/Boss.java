@@ -14,4 +14,5 @@ public class Boss extends Person
     {
         return "Boss";
     }
+    public String toString(){return super.toString()+this.company;}
 }

@@ -10,6 +10,7 @@ import com.example.AA.inheritance3.NewNewBoss;
 import com.example.AA.thread.Apple;
 import com.example.AA.thread.Cat;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -23,7 +24,7 @@ public class Main
 //    {
 //        Mondayy
 //    }
-    public static void main(String[] ss)
+    public static void main(String[] ss)throws Exception
     {
         //1
         int[] a=new int[10];
@@ -198,10 +199,14 @@ public class Main
         System.out.println(str.getClass());
 
         //
+        Person person1=new Person("Jim","12 Rd");
+        Class<? extends Person> personClass=person1.getClass();
+        Field nameField=personClass.getDeclaredField("name");
+        nameField.setAccessible(true);
+        String name=(String)nameField.get(person1);
+        System.out.println(name);
 
-
-
-
+        
 
         //bean, qualifier, reflection, eager loading, lazy loading, join, pagenation
         //equals(), toString(), hashCode(), getClass()
