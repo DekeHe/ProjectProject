@@ -17,7 +17,7 @@ console.log(c,c.size,c.color,c.shape)
 c.run()
 
 firstofall
-test project
+mongodb compass, test project
 
 mongodb
 https://stackoverflow.com/questions/65357744/how-to-install-mongodb-on-apple-m1-chip
