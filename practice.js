@@ -21,3 +21,8 @@ mongodb compass, test project
 
 mongodb
 https://stackoverflow.com/questions/65357744/how-to-install-mongodb-on-apple-m1-chip
+
+npm init -y
+"start": "node app.js"
+"dependencies"{}
+npm install
