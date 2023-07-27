@@ -26,3 +26,45 @@ npm init -y
 "start": "node app.js"
 "dependencies"{}
 npm install
+
+let restaurant = 
+{
+    name:name,
+    address:address,
+    zip:zip,
+    rating:0,
+    foodMenu:[],
+    reviewIds:[]
+}
+
+let customer=
+{
+    userName:userName,
+    passWord:passWord,
+    firstName:firstName,
+    lastName:lastName,
+    email:email,
+    profilePicture:profilePicture,
+    age:age,
+    reviewIds:[],
+    commentIds:[],
+    cart:[]
+}
+
+let review=
+{
+    restaurantId:restaurantId,
+    customerId:customerId,
+    reviewText:reviewText,
+    rating:rating,
+    commentIds:[],
+    upvoteIds:[],
+    downvoteIds:[]
+}
+
+const comment=
+{
+    customerId:customerId,
+    reviewId:reviewId,
+    commentText:commentText
+}
