@@ -29,6 +29,7 @@ npm install
 
 let restaurant = 
 {
+    id
     name:name,
     address:address,
     zip:zip,
@@ -39,6 +40,7 @@ let restaurant =
 
 let customer=
 {
+    id
     userName:userName,
     passWord:passWord,
     firstName:firstName,
@@ -53,6 +55,7 @@ let customer=
 
 let review=
 {
+    id
     restaurantId:restaurantId,
     customerId:customerId,
     reviewText:reviewText,
@@ -64,7 +67,15 @@ let review=
 
 const comment=
 {
+    id
     customerId:customerId,
     reviewId:reviewId,
     commentText:commentText
 }
+
+all exception
+delete all throw
+
+js, java, android
+
+this, yangyang, 
